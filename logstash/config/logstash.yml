@@ -1,0 +1,13 @@
+## Default Logstash configuration.
+http:
+  host: "0.0.0.0"
+
+## X-Pack security credentials
+xpack:
+  monitoring:
+    enabled: true
+    elasticsearch:
+      hosts:
+        - "http://elasticsearch:9200"
+      username: ${ES_USERNAME}
+      password: ${ES_PASSWORD}

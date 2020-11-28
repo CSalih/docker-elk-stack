@@ -1,0 +1,19 @@
+## Default Elasticsearch configuration
+cluster:
+  name: ${ES_CLUSTER_NAME:docker-es-cluster}
+network:
+  host: ${ES_NETWORK_HOST:0.0.0.0}
+
+discovery:
+  type:
+    single-node
+
+## X-Pack settings
+xpack:
+  license:
+    self_generated.type: basic
+  security:
+    enabled: ${ES_SECURITY_ENABLED:true}
+  monitoring:
+    collection:
+      enabled: true

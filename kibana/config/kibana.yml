@@ -1,0 +1,13 @@
+## Default Kibana configuration
+server:
+  name: kibana
+  host: "0.0.0.0"
+
+
+## Elastic search configuration
+monitoring.ui.container.elasticsearch.enabled: true
+elasticsearch:
+  hosts:
+    - "http://elasticsearch:9200"
+  username: ${ES_USERNAME}
+  password: ${ES_PASSWORD}
