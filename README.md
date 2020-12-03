@@ -14,8 +14,8 @@ For custom configurations you may look at the config folders and read
 
 To start the Stack execute the lines below. 
 ```bash
-$ git clone https://github.com/CSalih/elk-docker-stack.git
-$ cd elk-docker-stack
+$ git clone https://github.com/CSalih/docker-elk-stack.git
+$ cd docker-elk-stack
 $ docker-compose up -d
 ```
 
