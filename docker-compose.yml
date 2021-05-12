@@ -34,5 +34,30 @@ services:
       - "5601:5601"
 
 
+  filebeat:
+    user: root
+    image: docker.elastic.co/beats/filebeat:${ELK_VERSION}
+    depends_on:
+      - elasticsearch
+    volumes:
+      - /var/run/docker.sock:/host_docker/docker.sock
+      - /var/lib/docker:/host_docker/var/lib/docker
+      - /home/salih/projects/ezdocker-stack/logs/mysql:/var/log/mysql/
+      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
+    command: ["--strict.perms=false"]
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    stdin_open: true
+    tty: true
+    deploy:
+      mode: global
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "50"
+
 volumes:
   es-data:

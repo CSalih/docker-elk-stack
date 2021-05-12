@@ -1,0 +1,25 @@
+filebeat.modules:
+  - module: mysql
+    error:
+      enabled: true
+      var.paths: ["/var/log/mysql/error.log*"]
+    slowlog:
+      enabled: true
+      var.paths: ["/var/log/mysql/slow-queries.log*"]
+
+
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
+  username: "elastic"
+  password: "passwd"
+
+setup.kibana:
+  host: "kibana:5601"
+
+    
+processors:
+  - add_docker_metadata:
+      host: "unix:///host_docker/docker.sock"
+
+
+setup.dashboards.enabled: true
